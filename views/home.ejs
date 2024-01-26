@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinophile hut- A movie review app</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- css -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=PT+Serif&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Signika+Negative&display=swap" rel="stylesheet">
+    <!-- icons -->
+    <script src="https://kit.fontawesome.com/058979f928.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex justify-content-center align-items-center" href="#"> <img src="images/logo.png" alt="Cinephile Hut">
+                <p>Cinephile Hut</p></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#latest">Latest</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#genre">Genre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search" action="/" method="post">
+                    <input class="form-control me-2" type="search" name="movie" placeholder="Search"
+                        aria-label="Search">
+                    <button class="btn btn-outline-dark" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <section class="main" id="latest">
+        <div class="slides active " 
+            style="background-image: linear-gradient( 130deg, #ffcb00 40%, transparent 58% ), url(<%=info[0].Poster%>)">
+            <div class="details reveal">
+                <h1>
+                    <%=info[0].title%>
+                </h1>
+                <h4>Director:<%=info[0].Director%>
+                </h4>
+                <div class="detail">
+                    <h5>Genre:<%=info[0].Genre%>
+                    </h5>
+                    <h5>Language:<%=info[0].language%>
+                    </h5>
+                </div>
+                <div class="rating">
+                    <div class="imdb rating">
+                        <img src="images/icons8-imdb-96.png" alt="" srcset="">
+                        <h5>
+                            <%=info[0].imdbRating%>
+                        </h5>
+                    </div>
+                    <div class="metacritics rating">
+                        <img src="images/icons8-metacritic-96.png" alt="" srcset="">
+                        <h5>
+                            <%=info[0].Metascore%>
+                        </h5>
+                    </div>
+                </div>
+                <a href="/movie/<%=info[0].imdbId %>"><button type="button" class="more">More Detail</button></a>
+            </div>
+            <div class="poster">
+                <img src=" <%=info[0].Poster %> " alt="" srcset="">
+            </div>
+        </div>
+        <% for(var i=1;i<info.length;i++){ %>
+            <div class="slides"
+                style="background-image: linear-gradient( 130deg, #ffcb00 40%, transparent 58% ), url(<%=info[i].Poster%>)">
+                <div class="details">
+                    <h1>
+                        <%=info[i].title%>
+                    </h1>
+                    <h4>Director:<%=info[i].Director%>
+                    </h4>
+                    <div class="detail">
+                        <h5>Genre:<%=info[i].Genre%>
+                        </h5>
+                        <h5>Language:<%=info[i].language%>
+                        </h5>
+                    </div>
+                    <div class="rating">
+                        <div class="imdb rating">
+                            <img src="images/icons8-imdb-96.png" alt="" srcset="">
+                            <h5>
+                                <%=info[i].imdbRating%>
+                            </h5>
+                        </div>
+                        <div class="metacritics rating">
+                            <img src="images/icons8-metacritic-96.png" alt="" srcset="">
+                            <h5>
+                                <%=info[i].Metascore%>
+                            </h5>
+                        </div>
+                    </div>
+                    <a href="/movie/<%=info[i].imdbId %>"><button type="button" class="more" src="">More
+                            Detail</button></a>
+                </div>
+                <div class="poster">
+                    <img src=" <%=info[i].Poster %> " alt="" srcset="">
+                </div>
+            </div>
+            <% } %>
+                <div class="navBox">
+                    <div class="navSlide active"></div>
+                    <% for(var i=1;i<info.length;i++){ %>
+                        <div class="navSlide"></div>
+                        <% } %>
+                </div>
+    </section>
+    <section class="genre" id="genre">
+        <div class="all">
+            <h1>Comedy</h1>
+        </div>
+        <div class="genral">
+            <div class="leftBtn">
+            </div>
+            <div class="butn" id="pre">
+                <h2>
+                    < </h2>
+            </div>
+            <div id="comedy">
+                <% for(var i=0;i<Com.length;i++){ %>
+                    <div class="comList same">
+                        <img src="<%= Com[i].Poster %>" alt="" srcset="">
+                        <a href="/movie/<%=Com[i].imdbId %>"><button type="button" class="more">More Detail</button></a>
+                    </div>
+                    <% } %>
+            </div>
+            <div class="rightBtn">
+            </div>
+            <div class="butn" id="nxt">
+                <h2> > </h2>
+            </div>
+        </div>
+        <div class="all">
+            <h1>Adventure</h1>
+        </div>
+        <div class="genral">
+            <div class="leftBtn">
+            </div>
+            <div class="butn" id="preA">
+                <h2>
+                    < </h2>
+            </div>
+            <div id="adventure">
+                <% for(var i=0;i<Adv.length;i++){ %>
+                    <div class="advList same">
+                        <img src="<%= Adv[i].Poster %>" alt="" srcset="">
+                        <a href="/movie/<%=Adv[i].imdbId %>"><button type="button" class="more">More Detail</button></a>
+                    </div>
+                    <% } %>
+            </div>
+            <div class="rightBtn">
+            </div>
+            <div class="butn" id="nxtA">
+                <h2> > </h2>
+            </div>
+        </div>
+        <div class="all">
+            <h1>Romance</h1>
+        </div>
+        <div class="genral">
+            <div class="leftBtn">
+            </div>
+            <div class="butn" id="preR">
+                <h2>
+                    < </h2>
+            </div>
+            <div id="romance">
+                <% for(var i=0;i<Rom.length;i++){ %>
+                    <div class="romList same">
+                        <img src="<%= Rom[i].Poster %>" alt="" srcset="">
+                        <a href="/movie/<%=Rom[i].imdbId %>"><button type="button" class="more">More Detail</button></a>
+                    </div>
+                    <% } %>
+            </div>
+            <div class="rightBtn">
+            </div>
+            <div class="butn" id="nxtR">
+                <h2> > </h2>
+            </div>
+        </div>
+        <div class="all">
+            <h1>Horror</h1>
+        </div>
+        <div class="genral">
+            <div class="leftBtn">
+            </div>
+            <div class="butn" id="preH">
+                <h2>
+                    < </h2>
+            </div>
+            <div id="horror">
+                <% for(var i=0;i<Hor.length;i++){ %>
+                    <div class="horList same">
+                        <img src="<%= Hor[i].Poster %>" alt="" srcset="">
+                        <a href="/movie/<%=Hor[i].imdbId %>"><button type="button" class="more">More Detail</button></a>
+                    </div>
+                    <% } %>
+            </div>
+            <div class="rightBtn">
+            </div>
+            <div class="butn" id="nxtH">
+                <h2> > </h2>
+            </div>
+        </div>
+    </section>
+    <section id="contact">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#ffcb00" fill-opacity="1"
+                d="M0,192L120,165.3C240,139,480,85,720,58.7C960,32,1200,32,1320,32L1440,32L1440,0L1320,0C1200,0,960,0,720,0C480,0,240,0,120,0L0,0Z">
+            </path>
+        </svg>
+        <section class="us">
+            <h1>Get In Touch</h1>
+            <div class="contactDetails">
+                <ul>
+                    <li><a href=""><img src="/images/instagram.png" alt=""></a></li>
+                    <li><a href=""><img src="/images/gmail.png" alt=""></a></li>
+                    <li><a href=""><img src="/images/github-sign.png" alt=""></a></li>
+                    <li><a href=""><img src="/images/linkedin.png" alt=""></a></li>
+                </ul>
+            </div>
+        </section>
+    </section>
+    <a href="#latest">    <div class="top">
+        Top
+    </div></a>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+<script src="/javascript/animation.js"></script>
+
+</html>

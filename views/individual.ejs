@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/individual.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <section class="height">
+    <div class="background">
+        <div class="img">
+            <img src="<%=data.Poster%>" alt="" srcset="">
+        </div>
+        <div class="details">
+            <div class="title"><h1><%=data.title%></h1></div>
+            <div class="director">
+                <h2>Directed By </h2>
+                <h3><%= data.Director %></h3>
+            </div>
+            <div class="plot">
+                <h3>Plot</h3>
+                <p><%= data.Plot %></p>
+            </div>
+            <div class="rated">
+                <h3 class="lang">Rated: <%=data.Rated%></h3>
+                <h3 >Language: <%=data.Language%></h3>
+            </div>
+            <div class="released">
+                <h3 class="lang">Released: <%=data.Released%></h3>
+                <h3 >Runtime: <%=data.Runtime%></h3>
+            </div>
+            <div class="genre">
+                <h3>Genre: <%=data.Genre%></h3>
+            </div>
+            <div class="rating">
+                <div class="imdb rating">
+                    <img src="/images/icons8-imdb-96.png" alt="" srcset="">
+                    <h5>
+                        <%=data.imdbRating%>
+                    </h5>
+                </div>
+                <div class="metacritics rating">
+                    <img src="/images/icons8-metacritic-96.png" alt="" srcset="">
+                    <h5>
+                        <%=data.Metascore%>
+                    </h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+</body>
+
+</html>

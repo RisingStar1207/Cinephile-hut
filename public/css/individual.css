@@ -1,0 +1,87 @@
+body{
+    padding: 0px;
+    margin:0px;
+}
+.img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0px;
+}
+.details{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content:center;
+    align-items: flex-start;
+    z-index: 11;
+    margin-left: 100px;
+}
+.title h1{
+    font-size: 4rem;
+    color:#ffcb00;
+    margin:0px 0px;
+}
+.director{
+    display:flex;
+    align-items: center;
+}
+.director h2{
+    font-size: 3rem;
+    color:#ffcb00;
+    margin: 10px 0;
+}
+.director h3{
+    font-size: 2rem;
+    margin: 10px 10px;
+}
+.plot h3{
+    margin: 0px;
+    font-size:2rem;
+    margin-top: 20px;
+    color:#ffcb00;
+}
+.plot p{
+    margin:0px;
+}
+.rated{
+    display:flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.rated h3{
+    font-size:1.5rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.released{
+    display:flex;
+    flex-wrap: wrap;
+    align-items: center;
+    color:#ffcb00;
+}
+.lang{
+    margin-right: 20vw;
+}
+.rated h3{
+    font-size: 1.5rem;
+}
+.released h3{
+    font-size:1.5rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.rating{
+    display:flex;
+    align-items: center;
+}
+.rating img{
+    width:50px;
+    margin:15px;
+}
+.rating h5{
+    font-size: 1.5rem;
+}
+.metacritics{
+    padding:0px 50px;
+}
